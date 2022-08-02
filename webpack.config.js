@@ -1,11 +1,8 @@
-const { resolve } = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const TerserWebpackPlugin = require("terser-webpack-plugin");
-
-const isProd = process.env.NODE_ENV === "production";
+const { resolve } = require("path")
+const TerserWebpackPlugin = require("terser-webpack-plugin")
 
 const config = {
-  mode: isProd ? "production" : "development",
+  mode: "production",
   entry: {
     index: "./src/index.tsx",
   },
@@ -25,26 +22,22 @@ const config = {
       },
       {
         test: /\.css$/i,
-        include: resolve(__dirname, 'src'),
         use: ['style-loader', 'css-loader', 'postcss-loader'],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
       },
     ],
   }
 };
 
-if (isProd) {
-  config.optimization = {
-    minimizer: [new TerserWebpackPlugin()],
-  };
-} else {
-  config.devServer = {
-    port: 9000,
-    open: true,
-    hot: true,
-    compress: true,
-    stats: "errors-only",
-    overlay: true,
-  };
-}
+config.optimization = {
+  minimizer: [new TerserWebpackPlugin()],
+};
 
 module.exports = config;

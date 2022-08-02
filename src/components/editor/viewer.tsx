@@ -13,12 +13,12 @@ export default function Viewer3d(props: Viewer3dProps) {
 
     let scene = new THREE.Scene();
     let camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
-    let renderer = new THREE.WebGLRenderer();
+    let renderer = new THREE.WebGLRenderer({
+      canvas: document.getElementById('test-canvas') as HTMLCanvasElement
+    });
     
     renderer.setSize( window.innerWidth, window.innerHeight );
-    
-    document.body.appendChild( renderer.domElement );
-    
+
     let url = URL.createObjectURL(props.file)
     let geometry = new THREE.BoxGeometry( 1, 1, 1 );
     let material = new THREE.MeshBasicMaterial({
@@ -40,6 +40,8 @@ export default function Viewer3d(props: Viewer3dProps) {
   }, [])
 
   return (
-    <div></div>
+    <div>
+      <canvas id="test-canvas" />
+    </div>
   )
 }
