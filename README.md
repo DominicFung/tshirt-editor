@@ -9,8 +9,9 @@
 
 ### Preface
 
-> This article teaches you how to include the custom t-shirt editor into your Shopify site. The component is developed using Typescript React and bundled using Webpack. This is just a demo. Current or intended features:
+> This article teaches you how to include the custom t-shirt editor into your Shopify site. The component is developed using Typescript React and bundled using Webpack. This is just a demo. 
 
+Current or intended features:
  - [x] Bundling Demo to Shopify
  - [x] Image Editor Integration (Toast-ui/image-editor)
  - [ ] 3D mockup of the shirt (Threejs)
@@ -24,7 +25,7 @@
 
 <br />
 
-## Create a new template
+## Create a new Template
 
 Go to the admin page. Click edit code and create a new template. You can call it whatever you want, but I used `page.react-test.liquid`
 
@@ -52,7 +53,7 @@ Download all files inside the `dist/` folder. Upload them into the `assets/` fol
 
 <br /><br />
 
-## Create a new page using the template
+## Create a new page using the Template
 
 Save and Exit the code editor. Go to "Online Store" -> "Pages", Click on "Add page" button. You can call it whatever you want. For the "Theme template", choose the one we just created aka: "react-test".
 
