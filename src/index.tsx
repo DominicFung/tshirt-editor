@@ -4,8 +4,12 @@ import './styles/index.css';
 import App from './app';
 import reportWebVitals from './reportWebVitals';
 
+/**
+ * For Shopify's use case, we need to render the app into a div with id "react-shopify-test"
+ * Usually its: "root"
+ */
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById('react-shopify-test') as HTMLElement
 );
 root.render(
   <React.StrictMode>
