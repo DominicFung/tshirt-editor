@@ -1,15 +1,24 @@
 # Shopify TShirt Editor ![version]
 
 <p align="center">
-<img src="https://github.com/DominicFung/logistical.ly/blob/master/src/img/screen-shot-win.png?raw=true" align="center"
+<img src="https://github.com/DominicFung/tshirt-editor/blob/main/instructions/1.demo-shot.png?raw=true" align="center"
      alt="Screenshot of Logistical.ly" width="830" height="456">
 </p>
 
-This article teaches you how to include the custom T-Shirt Editor into your Shopify site.
+<br />
+
+### Preface
+
+> This article teaches you how to include the custom t-shirt editor into your Shopify site. The component is developed using Typescript React and bundled using Webpack. This is just a demo. Current or intended features:
+
+ - [x] Bundling Demo to Shopify
+ - [x] Image Editor Integration (Toast-ui/image-editor)
+ - [ ] 3D mockup of the shirt (Threejs)
+ - [ ] Print On Demand API hookup (Printify)
 
 [version]:       https://img.shields.io/badge/version-1-green
 
-<br /><br />
+<br />
 
 # Getting Started
 
@@ -26,8 +35,8 @@ Add the following code snippet:
 ```
 
 <p align="center">
-<img src="https://github.com/DominicFung/logistical.ly/blob/master/src/img/screen-shot-win.png?raw=true" align="center"
-     alt="Screenshot of Logistical.ly" width="830" height="456">
+<img src="https://github.com/DominicFung/tshirt-editor/blob/main/instructions/2.edit-code.png?raw=true" align="center"
+     alt="Screenshot of Logistical.ly" width="830" height="320">
 </p>
 
 <br /><br />
@@ -37,8 +46,8 @@ Add the following code snippet:
 Download all files inside the `dist/` folder. Upload them into the `assets/` folder on the Shopify Admin console.
 
 <p align="center">
-<img src="https://github.com/DominicFung/logistical.ly/blob/master/src/img/screen-shot-win.png?raw=true" align="center"
-     alt="Screenshot of Logistical.ly" width="830" height="456">
+<img src="https://github.com/DominicFung/tshirt-editor/blob/main/instructions/3.upload-js.png?raw=true" align="center"
+     alt="Screenshot of Logistical.ly" width="830" height="390">
 </p>
 
 <br /><br />
@@ -48,13 +57,13 @@ Download all files inside the `dist/` folder. Upload them into the `assets/` fol
 Save and Exit the code editor. Go to "Online Store" -> "Pages", Click on "Add page" button. You can call it whatever you want. For the "Theme template", choose the one we just created aka: "react-test".
 
 <p align="center">
-<img src="https://github.com/DominicFung/logistical.ly/blob/master/src/img/screen-shot-win.png?raw=true" align="center"
+<img src="https://github.com/DominicFung/tshirt-editor/blob/main/instructions/4.new-page.png?raw=true" align="center"
      alt="Screenshot of Logistical.ly" width="830" height="456">
 </p>
 
 
 ```
-ref:
-https://www.cadence-labs.com/2019/12/how-to-add-react-to-a-shopify-theme/
-https://skcript.com/svr/using-webpack-with-react-typescript/
+refs:
+  https://www.cadence-labs.com/2019/12/how-to-add-react-to-a-shopify-theme/
+  https://skcript.com/svr/using-webpack-with-react-typescript/
 ```
