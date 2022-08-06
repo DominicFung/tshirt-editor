@@ -1,7 +1,7 @@
 # Shopify TShirt Editor ![version]
 
 <p align="center">
-<img src="https://github.com/DominicFung/tshirt-editor/blob/main/instructions/1.demo-shot.png?raw=true" align="center"
+<img src="https://github.com/DominicFung/tshirt-editor/blob/main/instructions/images/1.demo-shot.png?raw=true" align="center"
      alt="Screenshot of Logistical.ly" width="830" height="456">
 </p>
 
@@ -9,13 +9,19 @@
 
 ### Preface
 
-> This article teaches you how to include the custom t-shirt editor into your Shopify site. The component is developed using Typescript React and bundled using Webpack. This is just a demo. 
+> This article teaches you how to include a **custom image editor**, hooked up directly to your **Print On Demand** of choice to your **Shopify Site**! You will need to compile the package bundle yourself from this source code (with your own personal API Key of course!), but don't worry it will be a breeze.
+
+> You will need to install a couple of dev tools including:
+> - **git** *(for pulling this source code, not required - you can also just hit the download button on the left)*
+> - **node & npm** *(installing and compiling the source code)*
+> - **text editor** *(for adding your own api token)*
 
 Current or intended features:
  - [x] Bundling Demo to Shopify
  - [x] Image Editor Integration (Toast-ui/image-editor)
+- [x] Print On Demand API hookup (Printify)
  - [ ] 3D mockup of the shirt (Threejs)
- - [ ] Print On Demand API hookup (Printify)
+
 
 [version]:       https://img.shields.io/badge/version-1-green
 
@@ -24,6 +30,25 @@ Current or intended features:
 # Getting Started
 
 <br />
+
+## Installing Dev Tools
+
+<br />
+
+## Getting Your Print On Demand API Key
+- Getting your [Printful API Key](./instructions/Printful/Printful.md)
+- Getting your [Printify API Key](./instructions/Printify/Printify.md)
+
+<br />
+
+## Compiling your JavaScript Bundle
+
+Open a command prompt or shell terminal.
+```
+cd <Location of this Source Code>
+npm install
+npm run shop-build
+```
 
 ## Create a new Template
 
@@ -36,7 +61,7 @@ Add the following code snippet:
 ```
 
 <p align="center">
-<img src="https://github.com/DominicFung/tshirt-editor/blob/main/instructions/2.edit-code.png?raw=true" align="center"
+<img src="https://github.com/DominicFung/tshirt-editor/blob/main/instructions/images/2.edit-code.png?raw=true" align="center"
      alt="Screenshot of Logistical.ly" width="830" height="320">
 </p>
 
@@ -47,7 +72,7 @@ Add the following code snippet:
 Download all files inside the `dist/` folder. Upload them into the `assets/` folder on the Shopify Admin console.
 
 <p align="center">
-<img src="https://github.com/DominicFung/tshirt-editor/blob/main/instructions/3.upload-js.png?raw=true" align="center"
+<img src="https://github.com/DominicFung/tshirt-editor/blob/main/instructions/images/3.upload-js.png?raw=true" align="center"
      alt="Screenshot of Logistical.ly" width="830" height="390">
 </p>
 
@@ -58,7 +83,7 @@ Download all files inside the `dist/` folder. Upload them into the `assets/` fol
 Save and Exit the code editor. Go to "Online Store" -> "Pages", Click on "Add page" button. You can call it whatever you want. For the "Theme template", choose the one we just created aka: "react-test".
 
 <p align="center">
-<img src="https://github.com/DominicFung/tshirt-editor/blob/main/instructions/4.new-page.png?raw=true" align="center"
+<img src="https://github.com/DominicFung/tshirt-editor/blob/main/instructions/images/4.new-page.png?raw=true" align="center"
      alt="Screenshot of Logistical.ly" width="830" height="456">
 </p>
 
