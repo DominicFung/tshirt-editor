@@ -19,7 +19,7 @@
 Current or intended features:
  - [x] Bundling Demo to Shopify
  - [x] Image Editor Integration (Toast-ui/image-editor)
-- [x] Print On Demand API hookup (Printify)
+ - [x] Print On Demand API hookup (Printify / Printful)
  - [ ] 3D mockup of the shirt (Threejs)
 
 
@@ -29,9 +29,17 @@ Current or intended features:
 
 # Getting Started
 
-<br />
+## Installing Dev Tools & Getting the Latest TShirt Editor Source Code
 
-## Installing Dev Tools
+The only installation you really need is [NodeJS](https://nodejs.org/en/download/). Let's get that now. Please install the LTS (Long Term Support) version on your platform of choice (Windows / MacOS).
+
+For more detailed instructions:
+ - [MacOS](https://nodesource.com/blog/installing-nodejs-tutorial-mac-os-x/)
+ - [Windows]()
+
+### Getting the Source Code
+
+
 
 <br />
 

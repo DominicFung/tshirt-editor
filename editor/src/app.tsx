@@ -12,24 +12,8 @@ export default function App() {
   const [files, setFiles] = useState([] as File[])
   const [toggleViewer, setToggleViewer] = useState(false)
 
-  const oauth = async () => {
-    let url = `https://api.printful.com/products`
-    let res = await fetch(url, {
-      method: 'GET',
-      mode: 'no-cors',
-      headers: {
-        'X-PF-Store-Id': "Tshirt-editor-demo",
-        'Authorization': `Bearer ${secret.token}`,
-        'Content-Type': 'application/json'
-      },
-      
-    })
-  }
-
-
-
   const getProducts = async () => {
-    let res = await fetch('https://api.printful.com/store/products', {
+    let res = await fetch('https://api.printful.com/products', {
       method: 'GET',
       mode: 'no-cors',
       headers: {
@@ -44,8 +28,7 @@ export default function App() {
   }
 
   useEffect(() => {
-    oauth()
-    //getProducts()
+    getProducts()
   }, [])
 
   return (

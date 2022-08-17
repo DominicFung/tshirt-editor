@@ -15,14 +15,6 @@ interface editorProps {
 export default function Editor({file}: editorProps) {
   const [ IE, setIE ] = useState<ImageEditor>()
 
-  const oauth = () => {
-    let url = `https://www.printful.com/oauth/token?client_secret=${secret.token}`
-    let res = fetch(url, {
-      method: 'POST',
-      mode: 'no-cors',
-    })
-  }
-
   const uploadFile = async (url: string, filename: string) => {
     let res = await fetch('https://api.printful.com/files', {
       method: 'POST',
@@ -34,8 +26,7 @@ export default function Editor({file}: editorProps) {
       }),
       headers: {
         "X-PF-Store-Id": "Tshirt-editor-demo",
-        'Authorization': `Bearer ${secret.token}`,
-        'Content-Type': 'application/json'
+        'Authorization': `Bearer ${secret.token}`
       }
     })
 
@@ -47,8 +38,7 @@ export default function Editor({file}: editorProps) {
   const setSaveAs = () => {
     (window as any).saveAs = (blob: Blob, filename: string) => {
       let url = URL.createObjectURL(blob)
-      //uploadFile(url, filename)
-      oauth()
+      uploadFile(url, filename)
     }
   }
 
