@@ -1,32 +1,12 @@
-import AWS from 'aws-sdk';
+//import AWS from 'aws-sdk'
 
-const TABLE_NAME = process.env.TABLE_NAME || '';
-const PRIMARY_KEY = process.env.PRIMARY_KEY || '';
+//const BUCKET_NAME = process.env.BUCKET_NAME || '';
+//const PLATFORM = process.env.PLATFORM || '';
 
-const db = new AWS.DynamoDB.DocumentClient();
-
-export const handler = async (event: any = {}): Promise<any> => {
-
-  const requestedItemId = event.pathParameters.id;
-  if (!requestedItemId) {
-    return { statusCode: 400, body: `Error: You are missing the path parameter id` };
+export const handler = async (event: any): Promise<any> => {
+  console.log('event: ', JSON.stringify(event, null, 4))
+  return {
+    body: JSON.stringify({message: 'Success'}),
+    statusCode: 200
   }
-
-  const params = {
-    TableName: TABLE_NAME,
-    Key: {
-      [PRIMARY_KEY]: requestedItemId
-    }
-  };
-
-  try {
-    const response = await db.get(params).promise();
-    if (response.Item) {
-      return { statusCode: 200, body: JSON.stringify(response.Item) };
-    } else {
-      return { statusCode: 404 };
-    }
-  } catch (dbError) {
-    return { statusCode: 500, body: JSON.stringify(dbError) };
-  }
-};
+}

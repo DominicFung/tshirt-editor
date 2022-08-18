@@ -6,12 +6,14 @@
     "postinstall": "(cd lambdas && npm install);",
     "build": "tsc",
     "watch": "tsc -w",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "deploy": "tsc & cdk deploy --outputs-file ./cdk-outputs.json --profile juju"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^18.7.6",
+    "@types/uuid": "^8.3.4",
     "aws-cdk": "^2.37.1",
     "aws-sdk": "^2.1196.0",
     "esbuild": "^0.15.4",
@@ -19,6 +21,7 @@
   },
   "dependencies": {
     "aws-cdk-lib": "^2.37.1",
-    "constructs": "^10.1.78"
+    "constructs": "^10.1.78",
+    "uuid": "^8.3.2"
   }
 }
