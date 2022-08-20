@@ -1,4 +1,8 @@
-# Shopify TShirt Editor ![version]
+# Embeddable Tshirt Editor ![version]
+
+> A **Toast UI Image Editor**[^1] you can embed on your **Shopify** site (or other e-commerce site). It connects to your **Print On Demand** of choice!
+
+<br />
 
 <p align="center">
 <img src="https://github.com/DominicFung/tshirt-editor/blob/main/instructions/images/1.demo-shot.png?raw=true" align="center"
@@ -7,23 +11,35 @@
 
 <br />
 
-### Preface
+## Preface
 
-> This article teaches you how to include a **custom image editor**, hooked up directly to your **Print On Demand** of choice to your **Shopify Site**! You will need to compile the package bundle yourself from this source code (with your own personal API Key of course!), but don't worry it will be a breeze.
+***To those who want an e-commerce edge ..*** 
+
+Whether it's to give your customers more design autonomy as you consult or allow your customers to tweak your proprietary designs, this editor is designed to give your customers convenience of designing right from your storefront. 
+
+***More about me and the state of this project:***
+
+Feel free to request new features [here](https://github.com/DominicFung/tshirt-editor/issues/new) and label it as an "*enhancement*"! For now, to make this work, you need to compile both the app (into a Javascript bundle) AND spin up your own cloud infrastructure (all code and instructions below). This is not for the faint of heart but feel free to reach out to me for any clarification.
+
+<br />
 
 > You will need to install a couple of dev tools including:
 > - **git** *(for pulling this source code, not required - you can also just hit the download button on the left)*
 > - **node & npm** *(installing and compiling the source code)*
 > - **text editor** *(for adding your own api token)*
+> - **AWS** account (Azure is coming soon)
 
 Current or intended features:
- - [x] Bundling Demo to Shopify
+ - [x] Bundling to Shopify
  - [x] Image Editor Integration (Toast-ui/image-editor)
- - [x] Print On Demand API hookup (Printify / Printful)
+ - [x] Print On Demand API hookup (Printify / Printful / etc.)
+ - [x] Cloud Infrastructure
+ - - [x] AWS
+ - - [ ] Azure
  - [ ] 3D mockup of the shirt (Threejs)
 
 
-[version]:       https://img.shields.io/badge/version-1-green
+[version]:       https://img.shields.io/badge/version-1.1-green
 
 <br />
 
@@ -46,6 +62,15 @@ For more detailed instructions:
 ## Getting Your Print On Demand API Key
 - Getting your [Printful API Key](./instructions/Printful/Printful.md)
 - Getting your [Printify API Key](./instructions/Printify/Printify.md)
+
+<br />
+
+## Spinning up your Cloud Infrastructure
+
+Since Printful / Printify are CORS protected backend APIs - we need our own cloud infrastructure. Most platforms also don't have an internal storage (relying on an image storage you provide). To keep cost low, our IaC uses serverless solutions when possible.
+
+- Spinning up [AWS Infrastructure](./backend/aws/README.md)
+- Spinning up [Azure Infrastructure](./backend/azure/README.md)
 
 <br />
 
@@ -101,3 +126,5 @@ refs:
   https://www.cadence-labs.com/2019/12/how-to-add-react-to-a-shopify-theme/
   https://skcript.com/svr/using-webpack-with-react-typescript/
 ```
+
+[^1]: https://ui.toast.com/tui-image-editor
