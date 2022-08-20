@@ -23,3 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 secret.json
+/backend/aws/**/*.js
+cdk.out
+cdk-outputs.json

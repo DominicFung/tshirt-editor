@@ -1,7 +1,7 @@
 import { Runtime } from 'aws-cdk-lib/aws-lambda'
 import { App, Stack, RemovalPolicy, CfnOutput } from 'aws-cdk-lib'
 import { NodejsFunction, NodejsFunctionProps } from 'aws-cdk-lib/aws-lambda-nodejs'
-import { BlockPublicAccess, Bucket, EventType } from 'aws-cdk-lib/aws-s3'
+import { BlockPublicAccess, Bucket, EventType, HttpMethods, BucketAccessControl } from 'aws-cdk-lib/aws-s3'
 import { LambdaDestination } from 'aws-cdk-lib/aws-s3-notifications'
 
 import { join } from 'path'
@@ -20,7 +20,14 @@ export class TShirtStack extends Stack {
         restrictPublicBuckets: false
       } as BlockPublicAccess,
       autoDeleteObjects: true,
-      removalPolicy: RemovalPolicy.DESTROY
+      removalPolicy: RemovalPolicy.DESTROY,
+      cors: [{
+          allowedMethods: [HttpMethods.GET, HttpMethods.POST, HttpMethods.PUT,],
+          allowedOrigins: ['*'],
+          allowedHeaders: ['*'],
+        }],
+      accessControl: BucketAccessControl.PUBLIC_READ,
+      publicReadAccess: true
     })
 
     const nodeJsFunctionProps: NodejsFunctionProps = {

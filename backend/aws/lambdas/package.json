@@ -12,6 +12,7 @@
     "@types/node": "^18.7.6"
   },
   "dependencies": {
-    "aws-sdk": "^2.1197.0"
+    "aws-sdk": "^2.1197.0",
+    "node-fetch": "^3.2.10"
   }
 }

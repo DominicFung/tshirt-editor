@@ -28,7 +28,7 @@ export default function App() {
   }
 
   useEffect(() => {
-    getProducts()
+    //getProducts()
   }, [])
 
   return (
