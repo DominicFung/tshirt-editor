@@ -1,42 +1,27 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './styles/App.css'
 
-import Dropzone from './components/dropzone'
-import Editor from './components/editor/editor'
-import Viewer3d from './components/editor/viewer'
+import Editor from './components/editor'
 import Appbar from './components/appbar'
+import UserModal from './components/usermodal'
 
 import secret from './secret.json'
 
+const key = "x-tshirt-editor-user-key"
+
 export default function App() {
-  const [files, setFiles] = useState([] as File[])
-  const [toggleViewer, setToggleViewer] = useState(false)
-
-  const getProducts = async () => {
-    let res = await fetch('https://api.printful.com/products', {
-      method: 'GET',
-      mode: 'no-cors',
-      headers: {
-        "X-PF-Store-Id": "Tshirt-editor-demo",
-        'Authorization': `Bearer ${secret.token}`,
-        'Content-Type': 'application/json'
-      }
-    })
-
-    console.log(res)
-    return res
-  }
+  const [ userModalOpen, setUserModalOpen ] = useState(false)
+  const [ userId, setUserId ] = useState<string|null>(localStorage.getItem(key))
 
   useEffect(() => {
-    //getProducts()
+    if (!userId) { setUserModalOpen(true) }
   }, [])
 
   return (
     <div className="App">
-      {/*<Appbar />*/}
-      {/*files.length === 0 && <Dropzone onDrop={setFiles} />*/}
-      {files.length === 0 && !toggleViewer && <Editor file={files[0]}/>}
-      {files.length > 0 && toggleViewer && <Viewer3d file={files[0]}/>}
+      <Appbar setUserOpen={setUserModalOpen} userId={userId} />
+      <Editor />
+      <UserModal open={userModalOpen} setOpen={setUserModalOpen} userId={userId} setUserId={setUserId} />
     </div>
   )
 }

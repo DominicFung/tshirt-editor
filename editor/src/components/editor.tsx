@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import ImageEditor from 'tui-image-editor'
 import "tui-image-editor/dist/tui-image-editor.css"
@@ -8,16 +8,14 @@ import { PutObjectCommand, PutObjectCommandInput, S3Client } from '@aws-sdk/clie
 
 import { v4 as uuidv4 } from 'uuid'
 
-import emptyImage from '../../assets/empty.png'
-import secret from '../../secret.json'
-import cdkoutput from '../../cdk-outputs.json'
+import emptyImage from '../assets/empty.png'
+import secret from '../secret.json'
+import cdkoutput from '../cdk-outputs.json'
 import { Credentials } from '@aws-sdk/types'
 
-interface editorProps {
-  file: File
-}
+interface editorProps {}
 
-export default function Editor({file}: editorProps) {
+export default function Editor({}: editorProps) {
   const [ IE, setIE ] = useState<ImageEditor>()
 
   const saveToS3 = async (blob: Blob, filename: string) => {
@@ -68,7 +66,7 @@ export default function Editor({file}: editorProps) {
           height: window.innerHeight+"px"
         },
         locale: {
-          Download: "Printful Upload",
+          Download: "Upload & Notify",
           Load: "Add Image"
         },
         menuBarPosition: "right",
