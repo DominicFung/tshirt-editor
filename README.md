@@ -32,11 +32,18 @@ Feel free to request new features [here](https://github.com/DominicFung/tshirt-e
 Current or intended features:
  - [x] Bundling to Shopify
  - [x] Image Editor Integration (Toast-ui/image-editor)
+ - - [x] Save User Session
+ - - [x] Rename Files before submitting
+ - - [ ] View Saved Files
  - [x] Print On Demand API hookup (Printify / Printful / etc.)
+ - - [x] Printify
+ - - - [x] Add image to Printify platform
+ - - - [x] User identity tied to folder structure
+ - - - [ ] Create Order after upload? [ref](https://developers.printful.com/docs/#section/Orders-API-examples)
+ - - [ ] Printful
  - [x] Cloud Infrastructure
  - - [x] AWS
  - - [ ] Azure
- - [ ] 3D mockup of the shirt (Threejs)
 
 
 [version]:       https://img.shields.io/badge/version-1.1-green
@@ -53,15 +60,30 @@ For more detailed instructions:
  - [MacOS](https://nodesource.com/blog/installing-nodejs-tutorial-mac-os-x/)
  - [Windows]()
 
+<br />
+
 ### Getting the Source Code
-
-
+```
+git clone https://github.com/DominicFung/tshirt-editor.git
+```
+Or download it by clicking the green "Code" button at the top right and clicking "Download ZIP"
 
 <br />
 
 ## Getting Your Print On Demand API Key
 - Getting your [Printful API Key](./instructions/Printful/Printful.md)
 - Getting your [Printify API Key](./instructions/Printify/Printify.md)
+
+<br />
+
+## Creating your secret.json
+
+```
+{
+  "platform": "api.printful.com",
+  "token": "<TOKEN HERE>"
+}
+```
 
 <br />
 

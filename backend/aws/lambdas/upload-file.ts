@@ -6,6 +6,13 @@ const PLATFORM = process.env.PLATFORM || '';
 const TOKEN = process.env.TOKEN || '';
 
 const postFiles = async (url: string, filename: string) => {
+
+  /** 
+   * filename = bucket object key: <user folder>/<img name>.png
+   * Change "/" to ":"
+   */
+  
+  let fn = filename.replace(/\//g, ":")
   let res = await fetch('https://api.printful.com/files', {
     method: 'POST',
     headers: {
@@ -16,7 +23,7 @@ const postFiles = async (url: string, filename: string) => {
     body: JSON.stringify({
       "type": "default",
       "url": url,
-      "filename": filename
+      "filename": fn
     })
   })
 
