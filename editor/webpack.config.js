@@ -2,17 +2,21 @@ const { resolve } = require("path")
 const TerserWebpackPlugin = require("terser-webpack-plugin")
 
 const config = {
-  mode: "production",
+  mode: "development",//"production",
   entry: {
     index: "./src/index.tsx",
   },
   output: {
+    publicPath: '',
     path: resolve(__dirname, "dist"),
     filename: "bundle.js",
   },
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
+  // externals: {
+  //   react: 'React'
+  // },
   module: {
     rules: [
       {

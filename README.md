@@ -101,7 +101,7 @@ Since Printful / Printify are CORS protected backend APIs - we need our own clou
 Open a command prompt or shell terminal.
 ```
 cd <Location of this Source Code>
-npm install
+cd editor & npm install
 npm run shop-build
 ```
 

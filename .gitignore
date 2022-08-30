@@ -27,3 +27,4 @@ secret.json
 cdk.out
 cdk-outputs.json
 examples
+dist

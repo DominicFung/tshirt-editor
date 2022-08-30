@@ -1,3 +1,4 @@
+import React from 'react'
 import { useEffect, useState } from 'react'
 import './styles/App.css'
 
@@ -79,10 +80,10 @@ export default function App() {
 
   return (
     <div className="App">
+      <div>Dom Test</div>
       <Appbar setUserOpen={setUserModalOpen} userId={userId} />
       <Editor userId={userId} setUploadCompleteOpen={setUploadCompleteOpen} saveAs={saveAs}/>
       
-      {/** MODALS */}
       <UserModal open={userModalOpen} setOpen={setUserModalOpen} userId={userId} setUserId={setUserId} />
       <UploadStatusModal open={uploadCompleteOpen} setOpen={setUploadCompleteOpen} status={uploadStatus}/>
       <FileNameModal open={fileNameOpen} setOpen={setFileNameOpen} filename={fileName} saveFile={(s: string) => saveToS3(blob, `${userId}/${s}`)}/>

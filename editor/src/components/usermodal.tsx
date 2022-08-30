@@ -1,4 +1,5 @@
 
+import React from 'react'
 import { Fragment, useEffect, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { UserAddIcon } from '@heroicons/react/outline'
@@ -74,7 +75,7 @@ export default function UserModal(props: UserModalProps) {
                       </Dialog.Title>
                       <div className="mt-2">
                         <p className="text-sm text-gray-500 py-4">
-                          Seems like you haven't set up your user yet! Please enter a username for us to remember us by.
+                          Seems like you haven't set up your user yet! Please enter a username for us to remember you by.
                         </p>
                         <div className="mb-4">
                           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
