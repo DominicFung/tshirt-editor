@@ -5,7 +5,7 @@ import ImageEditor from 'tui-image-editor'
 import "tui-image-editor/dist/tui-image-editor.css"
 import "tui-color-picker/dist/tui-color-picker.css"
 
-import emptyImage from '../assets/empty.png'
+import cdkoutput from '../cdk-outputs.json'
 
 
 interface editorProps {
@@ -18,15 +18,12 @@ export default function Editor( props: editorProps) {
   const [ IE, setIE ] = useState<ImageEditor>()
 
   const setSaveAs = () => {
-    // (window as any).saveAs = async (blob: Blob, filename: string) => {
-    //   await saveToS3(blob, `${props.userId}/${fn}`)
-    //   props.setUploadCompleteOpen(true)
-    // }
     (window as any).saveAs = props.saveAs
   }
 
   useEffect(() => {
     setSaveAs()
+
     let imageEditor = new ImageEditor(document.getElementById('tui-image-editor') as Element, { 
       usageStatistics: false,
       includeUI: {
@@ -42,7 +39,7 @@ export default function Editor( props: editorProps) {
         },
         menuBarPosition: "right",
         theme: {
-          'common.bi.image': emptyImage,
+          'common.bi.image': `https://${cdkoutput.TShirtEditor.bucketName}.s3.amazonaws.com/public/empty.png`,
           'common.backgroundColor': '#fafafa',
           'submenu.backgroundColor': '#d4d4d4',
           'submenu.partition.color': '#262626',

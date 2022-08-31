@@ -5,6 +5,14 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    maxWidth:{
+      xs: '320px',
+      sm: '384px',
+      md: '448px',
+      lg: '512px',
+      xl: '576px',
+      '7xl': '1280px'
+    },
     fontSize: {
       xs: '12px',
       sm: '14px',

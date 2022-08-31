@@ -80,7 +80,6 @@ export default function App() {
 
   return (
     <div className="App">
-      <div>Dom Test</div>
       <Appbar setUserOpen={setUserModalOpen} userId={userId} />
       <Editor userId={userId} setUploadCompleteOpen={setUploadCompleteOpen} saveAs={saveAs}/>
       
