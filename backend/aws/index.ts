@@ -1,3 +1,4 @@
+import { IResource, LambdaIntegration, MockIntegration, PassthroughBehavior, RestApi } from 'aws-cdk-lib/aws-apigateway'
 import { Runtime } from 'aws-cdk-lib/aws-lambda'
 import { App, Stack, RemovalPolicy, CfnOutput } from 'aws-cdk-lib'
 import { NodejsFunction, NodejsFunctionProps } from 'aws-cdk-lib/aws-lambda-nodejs'
@@ -58,45 +59,50 @@ export class TShirtStack extends Stack {
       value: s3.bucketName,
     })
 
-    // const api = new RestApi(this, `tshirt-editor-api-${id}`, {
-    //   restApiName: 'TShirt Editor Service'
-    // });
+    const addOrder = new NodejsFunction(this, 'orderPrintfulFunction', {
+      entry: join(__dirname, 'lambdas', 'printful-order.ts'),
+      ...nodeJsFunctionProps,
+    })
 
-    // const items = api.root.addResource('api');
-    // const singleItem = items.addResource('{filename}');
-    // singleItem.addMethod('POST', new LambdaIntegration(uploadFile));
+    const api = new RestApi(this, `tshirt-editor-api-${id}`, {
+      restApiName: 'TShirt Editor Service'
+    });
+
+    const orders = api.root.addResource('api');
+    const order = orders.addResource('order');
+    order.addMethod('POST', new LambdaIntegration(addOrder));
     
-    // addCorsOptions(singleItem)
+    addCorsOptions(order)
   }
 }
 
-// export function addCorsOptions(apiResource: IResource) {
-//   apiResource.addMethod('OPTIONS', new MockIntegration({
-//     integrationResponses: [{
-//       statusCode: '200',
-//       responseParameters: {
-//         'method.response.header.Access-Control-Allow-Headers': "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-//         'method.response.header.Access-Control-Allow-Origin': "'*'",
-//         'method.response.header.Access-Control-Allow-Credentials': "'false'",
-//         'method.response.header.Access-Control-Allow-Methods': "'OPTIONS,GET,PUT,POST,DELETE'",
-//       },
-//     }],
-//     passthroughBehavior: PassthroughBehavior.NEVER,
-//     requestTemplates: {
-//       "application/json": "{\"statusCode\": 200}"
-//     },
-//   }), {
-//     methodResponses: [{
-//       statusCode: '200',
-//       responseParameters: {
-//         'method.response.header.Access-Control-Allow-Headers': true,
-//         'method.response.header.Access-Control-Allow-Methods': true,
-//         'method.response.header.Access-Control-Allow-Credentials': true,
-//         'method.response.header.Access-Control-Allow-Origin': true,
-//       },
-//     }]
-//   })
-// }
+export function addCorsOptions(apiResource: IResource) {
+  apiResource.addMethod('OPTIONS', new MockIntegration({
+    integrationResponses: [{
+      statusCode: '200',
+      responseParameters: {
+        'method.response.header.Access-Control-Allow-Headers': "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+        'method.response.header.Access-Control-Allow-Origin': "'*'",
+        'method.response.header.Access-Control-Allow-Credentials': "'false'",
+        'method.response.header.Access-Control-Allow-Methods': "'OPTIONS,GET,PUT,POST,DELETE'",
+      },
+    }],
+    passthroughBehavior: PassthroughBehavior.NEVER,
+    requestTemplates: {
+      "application/json": "{\"statusCode\": 200}"
+    },
+  }), {
+    methodResponses: [{
+      statusCode: '200',
+      responseParameters: {
+        'method.response.header.Access-Control-Allow-Headers': true,
+        'method.response.header.Access-Control-Allow-Methods': true,
+        'method.response.header.Access-Control-Allow-Credentials': true,
+        'method.response.header.Access-Control-Allow-Origin': true,
+      },
+    }]
+  })
+}
 
 const app = new App();
 new TShirtStack(app, 'TShirtEditor');

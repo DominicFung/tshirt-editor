@@ -36,11 +36,12 @@ Current or intended features:
  - - [x] Rename Files before submitting
  - - [ ] View Saved Files
  - [x] Print On Demand API hookup (Printify / Printful / etc.)
- - - [x] Printify
- - - - [x] Add image to Printify platform
+ - - [x] Printful
+ - - - [x] Add image to Printful platform
  - - - [x] User identity tied to folder structure
- - - - [ ] Create Order after upload? [ref](https://developers.printful.com/docs/#section/Orders-API-examples)
- - - [ ] Printful
+ - - - [ ] Create Order after upload [ref](https://developers.printful.com/docs/#section/Orders-API-examples)
+ - - - [ ] Generate Mockups [ref](https://developers.printful.com/docs/#tag/Mockup-Generator-API)
+ - - [ ] Printify
  - [x] Cloud Infrastructure
  - - [x] AWS
  - - [ ] Azure
@@ -112,7 +113,9 @@ Go to the admin page. Click edit code and create a new template. You can call it
 Add the following code snippet:
 ```
 <script defer type="module" src="{{ "bundle.js" | asset_url }}"></script>
-<div id="react-shopify-test"></div>
+<div id="react-shopify-test">
+  <img src="https://github.com/DominicFung/tshirt-editor/blob/main/public/tshirt-editor-blur.png?raw=true" alt="blur tshrit editor" />
+</div>
 ```
 
 <p align="center">
